@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class jumptouch : MonoBehaviour
 {
+    public float x;
+    public float y;
     public Rigidbody2D rb;
     public float jumpforce;
+    private bool isGrounded;
+    public float checkRadius = 0.2f;
+    public bool isJumping;
+    public float jumpTimeCounter;
+    public float jumpTime;
 
+    [SerializeField] public Transform groundCheck;
+    [SerializeField] public LayerMask groundLayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +25,12 @@ public class jumptouch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount > 0)
+        
+        if (Input.touchCount > 0 )
         {
-            Touch touch = Input.GetTouch(0);
-            rb.velocity = Vector2.up * jumpforce;
+            rb.gravityScale *= -1;
         }
+        
     }
+   
 }
