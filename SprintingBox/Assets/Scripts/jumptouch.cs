@@ -6,6 +6,8 @@ public class jumptouch : MonoBehaviour
 {
     public float speed;
     public Rigidbody2D rb;
+    public AudioClip sfx;
+    public AudioSource souunds;
    
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,8 @@ public class jumptouch : MonoBehaviour
     public void gravity()
     {
         rb.gravityScale *= -1;
+        souunds.clip = sfx;
+        souunds.Play();
     }
    
    
